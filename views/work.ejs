@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs') %>
+
+    <main>
+        <h1>Welcome to Your Work-list</h1>
+        <section id="form-section">
+            <form action="/work_submit" method="post">
+                <input type="text" name="new-task" id="new-task" placeholder="add a new task here ..."></label>
+                <input type="submit" value="+">
+            </form>
+        </section>
+        <section id="items-section">
+            <% if (work_tasks.length != 0 ) { %>
+                <ul>
+                <% work_tasks.forEach((task)=>{ %>
+                   <li><input type="checkbox" name="" id=""><label><%= task %></label></li>
+                <% }) %>
+                </ul>
+               <% } else {%>
+               <ul>
+                   <li><p>No task for now</p></li>
+                  
+               </ul>
+               <% } %>
+        </section>
+    </main>
+
+<%- include('partials/footer.ejs') %>
